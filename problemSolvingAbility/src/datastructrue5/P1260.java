@@ -119,8 +119,8 @@ public class P1260 {
                 if(!visited[i]) {
                     //방문배열에 남기고
                     //큐에 넣는다./
-                    queue.add(i);
                     visited[i] = true;
+                    queue.add(i);
                 }
             }
         }
