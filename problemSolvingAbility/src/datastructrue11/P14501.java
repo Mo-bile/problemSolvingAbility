@@ -17,14 +17,36 @@ public class P14501 {
             P[i] = sc.nextInt();
         }
 
+//        for(int i = N ; i > 0 ; i --){
+//            if(i + T[i] > N + 1){
+//                D[i] = D[i + 1];
+//            }
+//            else{
+//                D[i] = Math.max(D[i+1], P[i] + D[i + T[i]]);
+//            }
+//        }
+
+
+        // N 부터 0까지 반복하기
         for(int i = N ; i > 0 ; i --){
+
+            //i 번째의 필요일수 더한날이! / 퇴사일보다 큰 경우
             if(i + T[i] > N + 1){
+
+                //다음 상담시작일정으로 넘긴다.
                 D[i] = D[i + 1];
             }
-            else{
-                D[i] = Math.max(D[i+1], P[i] + D[i + T[i]]);
+            //퇴사일 보다 작은경우
+            else {
+
+                // 다음 상담시작일정에서 수입과
+                // i번째의 필요일수 더한날을 마쳤을 때 수입의 최대값을 비교한다.
+                D[i] = Math.max(D[i + 1], P[i] + D[i + T[i]]);
             }
+
         }
+
+
 
         System.out.println(D[1]);
 
